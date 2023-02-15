@@ -1,29 +1,56 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container" :style="bgProps">
+    <input type="color" v-model="changeColor">
+    <nav>
+      <router-link to="/">首頁</router-link> |
+      <router-link to="/dynamicInput">組件Component</router-link> |
+      <router-link to="/connectAPI">串接API</router-link>
+    </nav>
+    <router-view/>
+  </div>
+
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import ChangeTheme from './components/ChangeTheme.vue';
 
+export default{
+  components:{
+    ChangeTheme
+  },
+  data() {
+      return {
+          changeColor: '#00cc00'
+      }
+  },
+  computed: {
+      bgProps() {
+        return {
+          '--bg-color': this.changeColor
+        }
+      }
+  },
+}
+</script>
+
+<style lang="scss">
+*{
+  // border: 0;
+  margin: 0;
+}
+.container{
+  background: var(--bg-color);
+  min-height: 100vh;
+}
 nav {
   padding: 30px;
-
+  text-align: center;
   a {
     font-weight: bold;
     color: #2c3e50;
-
+    text-decoration: none;
     &.router-link-exact-active {
-      color: #42b983;
+      color: #fbcb3a;
     }
   }
 }
