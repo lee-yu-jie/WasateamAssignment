@@ -1,6 +1,5 @@
 <template>
   <div class="container" >
-    <input type="color" v-model="changeColor">
     <nav>
       <router-link to="/">首頁</router-link> |
       <router-link to="/dynamicInput">組件Component</router-link> |
@@ -13,23 +12,32 @@
 
 <script>
 import ChangeTheme from './components/ChangeTheme.vue';
-
+import { useHead } from 'unhead'
+import { useRoute } from 'vue-router';
+import { watch } from '@vue/runtime-core';
 export default{
   components:{
     ChangeTheme
   },
-  data() {
-      return {
-          changeColor: '#00cc00'
-      }
-  },
-  computed: {
-      bgProps() {
-        return {
-          '--bg-color': this.changeColor
-        }
-      }
-  },
+  setup(){
+    const route = useRoute()
+    watch(route , () => {
+      useHead({
+        title: route.meta.title,
+        meta: [
+          {
+            name: 'description',
+            content: route.meta.description,
+          },
+        ],
+      })
+    }, 
+    { 
+      deep: true, 
+      immediate: true
+    })
+    return{}
+  }
 }
 </script>
 
