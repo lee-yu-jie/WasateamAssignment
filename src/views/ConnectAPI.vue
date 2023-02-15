@@ -1,39 +1,37 @@
 
 <template>
-  <div class="theme" :style="bgProps">
-      <div class="btn">
-          <input type="color" v-model="changeColor">
-      </div>
-  </div>
+  <loading :isLoading="isLoading"/>
+  <Table :tableData="tableData" :tableHeader="tableHeader"/>
 </template>
-<script>
-export default {
-  data() {
-      return {
-          changeColor: '#00cc00'
-      }
-  },
-  computed: {
-      bgProps() {
-        return {
-          '--bg-color': this.changeColor
-        }
-      }
-  },
-}
-</script>
 
-<style lang="scss" scoped>
-.theme{
-  width: 100%;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  .btn > input{
-      width: 30px;
-      height: 30px;
+<script>
+import { apiGetMember } from "@/assets/api/api"
+import Table from "@/components/Table.vue";
+import Loading from "@/components/Loading.vue";
+import { reactive, ref } from 'vue';
+
+export default {
+  components: {
+    Table,
+    Loading
+  },
+  setup(){
+    const tableData = reactive({data: []})
+    const tableHeader = [ '姓名', '居住地']
+    const isLoading = ref(true)
+    apiGetMember().then(res => {
+      tableData.data = res.data
+    }).then(_ => {
+      isLoading.value = false
+    }).catch(err => {
+      alert(err.message)
+    })
+
+    return{
+      tableData,
+      tableHeader,
+      isLoading
+    }
   }
 }
-</style>
+</script>

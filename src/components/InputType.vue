@@ -50,7 +50,4 @@ export default {
   input, label, select{
     cursor: pointer;
   }
-  // .radio-container:not(:last-of-type){
-  //   margin-right: 10px;
-  // }
 </style>

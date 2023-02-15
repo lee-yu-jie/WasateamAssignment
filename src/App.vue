@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="bgProps">
+  <div class="container" >
     <input type="color" v-model="changeColor">
     <nav>
       <router-link to="/">首頁</router-link> |
