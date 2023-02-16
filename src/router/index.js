@@ -27,6 +27,15 @@ const routes = [
       description: '串接一組假資料並用table方式呈現'
     },
     component: () => import('../views/ConnectAPI.vue')
+  },
+  {
+    path: '/computed',
+    name: 'computed',
+    meta: {
+      title: 'computed應用',
+      description: '串接一組假資料並用table方式呈現'
+    },
+    component: () => import('../views/Computed.vue')
   }
 ]
 

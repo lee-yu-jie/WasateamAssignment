@@ -3,7 +3,8 @@
     <nav>
       <router-link to="/">首頁</router-link> |
       <router-link to="/dynamicInput">組件Component</router-link> |
-      <router-link to="/connectAPI">串接API</router-link>
+      <router-link to="/connectAPI">串接API</router-link> |
+      <router-link to="/computed">computed應用</router-link>
     </nav>
     <router-view/>
   </div>

@@ -10,15 +10,6 @@ export default {
     home
   },
   setup(){
-//     useHead({
-//   title: 'My Page',
-//   meta: [
-//     {
-//       name: 'description',
-//       content: 'My page description',
-//     },
-//   ],
-// })
 
     return{}
   }
