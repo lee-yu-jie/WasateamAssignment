@@ -6,8 +6,8 @@
 
 <script>
 import { apiGetMember } from "@/assets/api/api"
-import Table from "@/components/Table.vue";
-import Loading from "@/components/Loading.vue";
+import Table from "@/components/unity/Table.vue";
+import Loading from "@/components/unity/Loading.vue";
 import { reactive, ref } from 'vue';
 
 export default {

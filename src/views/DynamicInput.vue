@@ -3,7 +3,7 @@
 
     <section class="card">
       <div class="card-body">
-        <h2>文字輸入框</h2>
+        <h2>𝕋𝔼 文字輸入框 𝕏𝕋</h2>
         <InputType type="text" v-model="inputText"/>
         <p>輸出：{{ inputText }}</p>
       </div>
@@ -11,7 +11,7 @@
     
     <section class="card">
       <div class="card-body">
-        <h2>單選框</h2>
+        <h2>◍ 單選框 ◍</h2>
         <InputType type="radio" v-model="radioValue" :options="radioOptions"/>
         <p>目前選中：{{ radioValue }}</p> 
       </div>
@@ -19,7 +19,7 @@
 
     <section class="card">
       <div class="card-body">
-        <h2>多選框</h2>
+        <h2>⠇ 下拉選擇框 ⠸</h2>
         <InputType type="select" v-model="selectedValue" :options="selectOptions"/>
         <p>目前選中：{{ selectedValue }}</p> 
       </div>
@@ -30,13 +30,11 @@
 
 <script>
 import InputType from '@/components/InputType.vue';
-import Button from '@/components/Button.vue';
 import { ref } from '@vue/reactivity';
 
 export default {
   components: {
     InputType,
-    Button 
   },
   setup(){
     const inputText = ref('')
@@ -97,7 +95,8 @@ export default {
     padding: 1em 0;
     margin-bottom: 3em;
     border-radius: 1em;
-    box-shadow: 10px 10px 20px 10px rgb(218, 218, 218);
+    box-shadow: 10px 10px 20px 10px rgb(233, 220, 255);
+    background: white;
     .card-body{
       width: fit-content;
       margin: auto;

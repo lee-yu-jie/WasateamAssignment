@@ -1,13 +1,12 @@
 <template>
-  <home msg="Welcome to Your Vue.js App"/>
+  <Home />
 </template>
 
 <script>
-import home from '@/components/home.vue'
-import { useHead } from 'unhead'
+import Home from '@/components/Home.vue'
 export default {
   components: {
-    home
+    Home
   },
   setup(){
 

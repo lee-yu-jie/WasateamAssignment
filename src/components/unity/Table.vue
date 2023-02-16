@@ -49,6 +49,9 @@ export default {
     tr:nth-of-type(odd){
       background: #f6ff90;
     }
+    tr:nth-of-type(even){
+      background: #edffe4;
+    }
   }
   th, td{
     padding: 10px;
