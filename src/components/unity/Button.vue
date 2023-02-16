@@ -5,20 +5,28 @@
 export default {
   props: {
     name: String,
+    color: String
   },
   setup(props){
-    // console.log(props.name);
+    let color = props.color
     return{
       props
     }
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
+
   .btn {
+    --btnColor: v-bind(color);
+
     margin: .5em 1em;
     cursor: pointer;
-    background: rgb(255, 72, 72);
+    background: var(--btnColor);
     color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(215, 215, 215);
+    border-style: groove;
   }
 </style>

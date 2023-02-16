@@ -21,7 +21,7 @@ export default {
     text-decoration: none;
     font-size: 20px;
     &.router-link-exact-active {
-      color: #ffdc2b;
+      color: #ffae2b;
     }
   }
 }

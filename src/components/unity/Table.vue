@@ -1,19 +1,17 @@
 <template lang="">
-    <div class="container">
-      <table class="table table-fixed">
-        <thead>
-          <tr>
-            <th v-for="header in props.tableHeader">{{ header }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="data in props.tableData.data">
-            <td>{{ data.name }}</td>
-            <td>{{ data.city }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th v-for="header in props.tableHeader">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="data in props.tableData.data">
+        <td>{{ data.name }}</td>
+        <td>{{ data.city }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 <script>
 export default {
@@ -22,8 +20,6 @@ export default {
     tableHeader: Array
   },
   setup(props){
-
-
     return {
       props
     }
@@ -31,9 +27,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.table-fixed{
+.table{
   width: 90%;
-
   margin: auto;
   thead {
     tr{

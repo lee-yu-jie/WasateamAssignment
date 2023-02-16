@@ -1,0 +1,50 @@
+
+//此處用了sass的map遍歷、函數、map存取、混合器等相關知識，
+//詳細API參考https://www.sass.hk/docs/
+$themes: (
+  light: (
+    primary_font_color: rgb(141, 210, 245),
+    title_font_color: rgb(93, 0, 93),
+    background_color: rgb(255, 205, 209),
+  ),
+  dark: (
+    primary_font_color: rgb(255, 202, 202),
+    title_font_color: rgb(255, 129, 255),
+    background_color: rgb(1, 1, 83),
+  )
+);
+//遍歷主題map
+@mixin themeify {
+  @each $theme-name, $theme-map in $themes {
+    // !global 把局部變量強升爲全局變量
+    $theme-map: $theme-map !global;
+    //這步是判斷html的data-theme的屬性值  #{}是sass的插值表達式
+    //& sass嵌套裏的父容器標識   @content是混合器插槽，像vue的slot
+    [data-theme="#{$theme-name}"] & {
+      @content;
+    }
+  }
+}
+//聲明一個根據Key獲取顏色的function
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+//暫時想到的常用的開發場景下面三種背景顏色、字體顏色、邊框顏色  至於陰影什麼之類的忽略了
+//獲取背景顏色
+@mixin background_color($color) {
+  @include themeify {
+    background-color: themed($color);
+  }
+}
+//獲取字體顏色
+@mixin primary_font_color($color) {
+  @include themeify {
+    color: themed($color);
+  }
+}
+@mixin title_font_color($color) {
+  @include themeify {
+    color: themed($color);
+  }
+}

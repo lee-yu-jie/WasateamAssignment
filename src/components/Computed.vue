@@ -22,33 +22,39 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
+import { computed } from '@vue/runtime-core';
 export default {
-  data() {
-    return {
-      firstText:'Wonderful',
-      lastText:'world',
-    };
-  },
-  computed:{
-    mergeText1(){
-      return this.firstText + ' ' + this.lastText;
-    },
-    mergeText2:{
-      get() { 
-        return `${this.firstText} ${this.lastText}`;
-      },
-      set(val) { 
+  setup(){
+    const firstText = ref('Wonderful')
+    const lastText = ref('world')
+
+    let  mergeText1 = computed(() => {
+      return firstText.value + ' ' + lastText.value;
+    })
+
+    let mergeText2 = computed({ 
+      get:()=>{ 
+        return `${firstText.value} ${lastText.value}`;
+      }, 
+      set:(val)=>{ 
         const textArr = val.split(' ');
         console.log(textArr);
-        this.firstText = textArr[0];
-        this.lastText = textArr[textArr.length - 1];
-      }
+        firstText.value = textArr[0];
+        lastText.value = textArr[textArr.length - 1];
+      } 
+    })
+    return {
+      firstText,
+      lastText,
+      mergeText1,
+      mergeText2
     }
-  },
+  }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @mixin flex-layout ($gap-size: 1em) {
   display: flex;
   flex-direction: column;
@@ -76,7 +82,6 @@ export default {
     @include flex-layout($gap-size: .5em);
     label {
       font-size: 20px;
-      color: #5831a5;
     }
     input {
       width: 200px;
