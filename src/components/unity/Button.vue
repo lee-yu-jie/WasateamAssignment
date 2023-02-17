@@ -24,7 +24,7 @@ export default {
     cursor: pointer;
     background: var(--btnColor);
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 10px;
     border: 1px solid rgb(215, 215, 215);
     border-style: groove;

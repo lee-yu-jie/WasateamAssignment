@@ -33,7 +33,7 @@ const routes = [
     name: 'computed',
     meta: {
       title: 'computed應用',
-      description: '串接一組假資料並用table方式呈現'
+      description: '展示了computed的getter和setter'
     },
     component: () => import('../views/Computed.vue')
   }
